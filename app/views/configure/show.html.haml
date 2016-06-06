@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %script{:src => 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'}
+
+    / AUI
+    %link{:href => '//aui-cdn.atlassian.com/aui-adg/5.9.19/css/aui.min.css', :media => 'all', :rel => 'stylesheet'}/
+    %script{:src => '//aui-cdn.atlassian.com/aui-adg/5.9.19/js/aui.min.js'}
+
+    = render 'connect-loader'
+
+    = render 'analytics'
+
+  %body
+    %section{id: 'content', class: 'ac-content'}
+      %header.aui-page-header
+        .aui-page-header-inner
+          .aui-page-header-main
+            %h1 Configure
+
+      .aui-page-panel
+        .aui-page-panel-inner
+          %section.aui-page-panel-item
+            Test

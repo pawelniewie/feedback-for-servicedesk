@@ -1,4 +1,4 @@
-class AllStarsController < ApplicationController
+class ConfigureController < ApplicationController
 
   include AtlassianJwtAuthentication
 
