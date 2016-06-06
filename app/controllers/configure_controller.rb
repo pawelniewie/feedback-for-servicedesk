@@ -9,9 +9,25 @@ class ConfigureController < ApplicationController
 
   def show
     render :show, locals: {
-        repos: Repo.where(jwt_token_id: current_jwt_auth.id).order(:repo_name).all,
+        session_token: create_session_token,
         base_url: current_jwt_auth.base_url
     }
+  end
+
+  def save
+
+  end
+
+  private
+
+  def create_session_token
+    issued_at = Time.now.utc.to_i
+
+    JWT.encode({
+                   iss: current_jwt_auth.client_key,
+                   iat: issued_at,
+                   aud: [current_jwt_auth.addon_key]
+               }, current_jwt_auth.shared_secret)
   end
 
 end

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   post '/uninstalled', to: 'lifecycle#uninstalled'
   get '/stars', to: 'stars#show'
   put '/stars', to: 'stars#save'
+
   get '/configure', to: 'configure#show'
+  put '/configure', to: 'configure#save'
   
 end
