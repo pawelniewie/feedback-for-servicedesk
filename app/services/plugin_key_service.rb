@@ -1,5 +1,5 @@
 module PluginKeyService
 
-	PLUGIN_KEY = 'nps-for-jira-servicedesk' + (Rails.env.production? ? '' :  '.' + Rails.env)
+	PLUGIN_KEY = 'customer-feedback-for-servicedesk-cloud' + (Rails.env.production? ? '' :  '.' + Rails.env)
 
 end
