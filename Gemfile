@@ -37,7 +37,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'atlassian-jwt-authentication', 
 	git: 'https://github.com/pawelniewie/atlassian-jwt-authentication.git',
-	branch: 'feature/use-api-base-url-for-applications-that-support-it',
+	branch: 'master',
 	require: 'atlassian_jwt_authentication'
 
 gem 'haml'
