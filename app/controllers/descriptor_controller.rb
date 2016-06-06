@@ -5,7 +5,7 @@ class DescriptorController < ApplicationController
 			base_url: 'https://' + ApplicationController.renderer.defaults[:http_host],
 			plugin_key: PluginKeyService::PLUGIN_KEY,
       client_id: Rails.application.secrets.client_id,
-			plugin_name: 'Stars for BitBucket' + (Rails.env.production? ? '' : ' [Development]')
+			plugin_name: 'Surveys for JIRA Service Desk' + (Rails.env.production? ? '' : ' [Development]')
 		}
 	end
 
