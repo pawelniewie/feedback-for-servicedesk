@@ -10,39 +10,24 @@
     "key": "<%= plugin_key %>",
     "name": "<%= plugin_name %>",
     "scopes": [
-        "account",
-        "repository"
+        "read",
+        "write"
     ],
     "lifecycle": {
         "installed": "/installed",
         "uninstalled": "/uninstalled"
     },
-    "modules": {
-      "oauthConsumer": {
-        "clientId": "<%= client_id %>"
-      },
-      "webPanel": [
-        {
-          "url": "/stars?repoPath={repo_path}",
-          "name": {
-            "value": "Stars Web Panel"
-          },
-          "location": "org.bitbucket.repository.overview.informationPanel",
-          "key": "stars-web-panel"
-        }
-      ],
-      "profileTab": [
-        {
-          "url": "/all-stars",
-          "name": {
-            "value": "Your stars"
-          },
-          "key": "all-stars"
-        }
-      ]
-    },
     "vendor": {
         "name": "Pawel Niewiadomski",
         "url": "https://pawelniewiadomski.com"
+    },
+    "modules": {
+      "configurePage": {
+        "url": "/configure",
+        "name": {
+          "value": "Configuration"
+        },
+        "key": "config-page"
+      }
     }
 }
