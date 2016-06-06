@@ -1,7 +1,7 @@
-class BitbucketController < ApplicationController
+class DescriptorController < ApplicationController
 
-	def descriptor
-		render :descriptor, locals: { 
+	def show
+		render :show, locals: {
 			base_url: 'https://' + ApplicationController.renderer.defaults[:http_host],
 			plugin_key: PluginKeyService::PLUGIN_KEY,
       client_id: Rails.application.secrets.client_id,
