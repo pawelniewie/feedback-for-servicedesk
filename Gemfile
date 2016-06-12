@@ -41,3 +41,5 @@ gem 'atlassian-jwt-authentication',
 	require: 'atlassian_jwt_authentication'
 
 gem 'haml'
+
+gem 'attr_encrypted'
