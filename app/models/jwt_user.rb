@@ -1,4 +1,4 @@
 class JwtUser < ActiveRecord::Base
   belongs_to :jwt_token
-  has_many :jwt_user_info
+  has_many :jwt_user_settings
 end

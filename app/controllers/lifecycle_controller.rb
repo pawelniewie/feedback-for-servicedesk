@@ -21,7 +21,7 @@ class LifecycleController < ApplicationController
 							+ emails.select { |email| email['is_primary'] })
 												.first['email']
 
-						JwtUserInfo.create(jwt_user_id: current_jwt_user.id, email: email) if email.present?
+						JwtUserSettings.create(jwt_user_id: current_jwt_user.id, email: email) if email.present?
 					end
 				end
 			end
