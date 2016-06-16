@@ -9,5 +9,7 @@ Rails.application.routes.draw do
 
   get '/configure', to: 'configure#show'
   put '/configure', to: 'configure#save'
+
+  post '/callback', to: 'callback#handle'
   
 end
