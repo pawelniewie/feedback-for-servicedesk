@@ -23,11 +23,21 @@
     },
     "modules": {
       "configurePage": {
-        "url": "/configure",
+        "url": "<%= base_url %>/configure",
         "name": {
           "value": "Configuration"
         },
         "key": "config-page"
-      }
+      },
+      "generalPages": [
+        {
+          "key": "custom-feedback-project-config",
+          "location": "atl.jira.proj.config/projectgroup4",
+          "name": {
+            "value": "Customer feedback"
+          },
+          "url": "<%= base_url %>/projects/${project.id}/configure"
+        }
+      ]
     }
 }
