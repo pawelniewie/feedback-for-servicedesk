@@ -35,10 +35,14 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'atlassian-jwt-authentication', 
-	git: 'https://github.com/pawelniewie/atlassian-jwt-authentication.git',
-	branch: 'master',
-	require: 'atlassian_jwt_authentication'
+gem 'atlassian-jwt-authentication',
+    git: 'https://github.com/pawelniewie/atlassian-jwt-authentication.git',
+    branch: 'master',
+    require: 'atlassian_jwt_authentication'
+
+gem 'promoter',
+    git: 'https://github.com/pawelniewie/promoter.git',
+    branch: 'feature/multitenancy-support'
 
 gem 'haml'
 gem 'slim'
