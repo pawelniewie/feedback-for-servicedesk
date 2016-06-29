@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    script src = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
+    script src = 'https://bitbucket.org/atlassian-connect/all.js'
+
+    / AUI
+    link href = '//aui-cdn.atlassian.com/aui-adg/5.9.19/css/aui.min.css' media = 'all' rel = 'stylesheet'
+    script src = '//aui-cdn.atlassian.com/aui-adg/5.9.19/js/aui.min.js'
+
+    = render 'analytics'
+body
+  == yield

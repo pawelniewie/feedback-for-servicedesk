@@ -11,5 +11,9 @@ Rails.application.routes.draw do
   put '/configure', to: 'configure#save'
 
   post '/callback', to: 'callback#handle'
+
+  resources :projects, only: [] do
+    get :configure
+  end
   
 end
