@@ -28,5 +28,7 @@ module BitbucketRailsAddOn
     config.api_only = true
 
     config.action_dispatch.default_headers.merge!({'X-Frame-Options' => 'ALLOWALL'})
+
+    config.react.addons = true
   end
 end
