@@ -13,6 +13,10 @@ class ProjectConfiguration < ApplicationRecord
 
   after_initialize :defaults, if: :new_record?
 
+  def to_param
+    project_id.to_s
+  end
+
   private
 
   def defaults

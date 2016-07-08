@@ -12,8 +12,6 @@ Rails.application.routes.draw do
 
   post '/callback', to: 'callback#handle'
 
-  resources :projects, only: [] do
-    get :configure
-  end
-  
+  resources :project_configurations, only: [:edit, :update], param: :project_id
+
 end

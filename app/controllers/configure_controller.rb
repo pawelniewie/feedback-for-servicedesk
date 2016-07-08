@@ -9,7 +9,7 @@ class ConfigureController < ApplicationController
 
   before_action :find_settings
 
-  def show
+  def edit
     render :show, locals: {
         base_url: current_jwt_auth.base_url,
         promoter_token: @settings.promoter_token

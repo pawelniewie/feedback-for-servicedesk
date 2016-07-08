@@ -1,0 +1,55 @@
+section#content role = 'main'
+  header.aui-page-header
+    .aui-page-header-inner
+      h1 Customer Feedback
+      /a.aui-button.back-to-product Back to Project
+
+  .aui-page-panel
+    .aui-page-panel-inner
+      .aui-page-panel-content
+        - if flash[:notice]
+          .aui-message.aui-message-success
+            p = flash[:notice]
+
+        = form_for @project_configuration, url: {action: 'update'}, html: {class: 'aui'}, method: :patch do |f|
+          = hidden_field_tag :jwt, create_session_token
+
+          .field-group
+            = f.label :product_name, 'Product or Service name'
+            = f.text_field :product_name, class: 'text'
+            .description
+              | Get it from your Profile menu &rarr; API
+
+          .field-group
+            = f.label :language, 'Language'
+            = f.text_field :language, class: 'text'
+            .description
+              | Get it from your Profile menu &rarr; API
+
+          .field-group
+            = f.label :reply_to, 'Reply-To Email'
+            = f.text_field :reply_to, class: 'text'
+            .description
+              | Get it from your Profile menu &rarr; API
+
+          .field-group
+            = f.label :from, 'From'
+            = f.text_field :from, class: 'text'
+            .description
+              | Get it from your Profile menu &rarr; API
+
+          .field-group
+            = f.label :subject, 'Subject'
+            = f.text_field :subject, class: 'text'
+            .description
+              | Get it from your Profile menu &rarr; API
+
+          .field-group
+            = f.label :intro, 'Introduction message'
+            = f.text_area :introduction, class: 'textarea', rows: 6
+            .description
+              | Get it from your Profile menu &rarr; API
+
+          .buttons-container
+            .buttons
+              = f.submit 'Save', id: 'save-button', class: 'submit button'
