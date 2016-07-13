@@ -15,40 +15,45 @@ section#content role = 'main'
           = hidden_field_tag :jwt, create_session_token
 
           .field-group
-            = f.label :product_name, 'Product or Service name'
+            = f.label :product_name, 'Product name'
             = f.text_field :product_name, class: 'text'
             .description
-              | Get it from your Profile menu &rarr; API
+              | What's the name of the product or the service?
 
           .field-group
             = f.label :language, 'Language'
-            = f.text_field :language, class: 'text'
+            = f.select :language, PromoterGateway.supported_languages.map {|k, v| [v, k]}, {}, {class: 'select'}
             .description
-              | Get it from your Profile menu &rarr; API
+              | What language to use for the mail?
 
           .field-group
             = f.label :reply_to, 'Reply-To Email'
             = f.text_field :reply_to, class: 'text'
             .description
-              | Get it from your Profile menu &rarr; API
+              | Address where customers can reach you
 
           .field-group
             = f.label :from, 'From'
             = f.text_field :from, class: 'text'
             .description
-              | Get it from your Profile menu &rarr; API
+              | Name that will be displayed in From field
 
           .field-group
             = f.label :subject, 'Subject'
             = f.text_field :subject, class: 'text'
             .description
-              | Get it from your Profile menu &rarr; API
+              | What subject should the message have?
 
           .field-group
             = f.label :intro, 'Introduction message'
             = f.text_area :introduction, class: 'textarea', rows: 6
             .description
-              | Get it from your Profile menu &rarr; API
+              | Additional message you want to include
+
+          .field-group
+            .checkbox
+              = check_box_tag :send_test, :true, false, class: 'checkbox'
+              = label_tag :send_test, 'Send test e-mail message to me'
 
           .buttons-container
             .buttons

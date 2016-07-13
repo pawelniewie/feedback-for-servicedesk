@@ -13,12 +13,19 @@ class ProjectConfigurationsController < ApplicationController
   end
 
   def update
-    @project_configuration.update(params.require(:project_configuration)
+    if @project_configuration.update(params.require(:project_configuration)
                     .permit([:product_name, :language, :reply_to, :from, :subject, :introduction]))
 
-    flash[:notice] = 'Configuration was saved!'
+      PromoterGateway.create_or_update_template(@project_configuration)
+      PromoterGateway.send_test_email(@project_configuration, current_jwt_auth.jwt_user_info.email) if params[:send_test].to_s == 'true'
 
-    redirect_to(edit_project_configuration_url(@project_configuration, jwt: params[:jwt]))
+      flash[:notice] = 'Configuration was saved!'
+
+      redirect_to(edit_project_configuration_url(@project_configuration, jwt: params[:jwt]))
+
+    else
+      render action: 'edit'
+    end
   end
 
   def load_project_configuration
