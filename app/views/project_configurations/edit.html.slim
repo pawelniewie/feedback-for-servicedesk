@@ -15,10 +15,16 @@ section#content role = 'main'
           = hidden_field_tag :jwt, create_session_token
 
           .field-group
-            = f.label :product_name, 'Product name'
-            = f.text_field :product_name, class: 'text'
+            = f.label :subject, 'Subject'
+            = f.text_field :subject, class: 'text'
             .description
-              | What's the name of the product or the service?
+              | What subject should the message have?
+
+          .field-group
+            = f.label :intro, 'Introduction message'
+            = f.text_area :introduction, class: 'textarea', rows: 6
+            .description
+              | Additional message you want to include
 
           .field-group
             = f.label :language, 'Language'
@@ -37,18 +43,6 @@ section#content role = 'main'
             = f.text_field :from, class: 'text'
             .description
               | Name that will be displayed in From field
-
-          .field-group
-            = f.label :subject, 'Subject'
-            = f.text_field :subject, class: 'text'
-            .description
-              | What subject should the message have?
-
-          .field-group
-            = f.label :intro, 'Introduction message'
-            = f.text_area :introduction, class: 'textarea', rows: 6
-            .description
-              | Additional message you want to include
 
           .field-group
             .checkbox

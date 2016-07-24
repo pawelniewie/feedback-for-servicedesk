@@ -45,9 +45,11 @@ gem 'atlassian-jwt-authentication',
     branch: 'master',
     require: 'atlassian_jwt_authentication'
 
-gem 'promoter',
-    git: 'https://github.com/pawelniewie/promoter.git',
-    branch: 'feature/multitenancy-support'
+# Mail handling
+gem 'mailgun_rails'
+gem 'premailer-rails'
+gem 'nokogiri'
+gem 'shoryuken'
 
 gem 'haml'
 gem 'slim'

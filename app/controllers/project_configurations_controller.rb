@@ -16,8 +16,7 @@ class ProjectConfigurationsController < ApplicationController
     if @project_configuration.update(params.require(:project_configuration)
                     .permit([:product_name, :language, :reply_to, :from, :subject, :introduction]))
 
-      PromoterGateway.create_or_update_template(@project_configuration)
-      PromoterGateway.send_test_email(@project_configuration, current_jwt_auth.jwt_user_info.email) if params[:send_test].to_s == 'true'
+      SurveyMailer.test_feedback(current_jwt_user, @project_configuration).deliver_later if params[:send_test].to_s == 'true'
 
       flash[:notice] = 'Configuration was saved!'
 
