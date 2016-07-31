@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pawelniewie/atlassian-jwt-authentication.git
-  revision: c610a4329ec442f621be07fbfe82be4802284685
+  revision: b611ccdb794df91876a7a2b77d8ab1edca5616c1
   branch: master
   specs:
     atlassian-jwt-authentication (0.1.1)
@@ -97,8 +97,7 @@ GEM
     htmlentities (4.3.4)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
-    httparty (0.13.7)
-      json (~> 1.8)
+    httparty (0.14.0)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.5.0)
@@ -224,6 +223,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  addressable
   atlassian-jwt-authentication!
   attr_encrypted
   byebug
