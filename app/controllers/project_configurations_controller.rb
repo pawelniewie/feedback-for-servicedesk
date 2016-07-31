@@ -34,11 +34,19 @@ class ProjectConfigurationsController < ApplicationController
   private
 
   def create_project_configuration
-    user_email = rest_api_call(:get, '/rest/api/2/myself')
-    if user_email.success?
-      JwtUserInfo.create!(jwt_user_id: current_jwt_user.id,
-                          email: user_email.data['emailAddress'],
-                          time_zone: user_email.data['timeZone'])
+    if current_jwt_user.jwt_user_info.blank?
+      response = jira_gateway.user(current_jwt_user.user_key)
+      if response.success?
+        user = response.parsed_response
+
+        JwtUserInfo.create!(jwt_user_id: current_jwt_user.id,
+                            email: user['emailAddress'],
+                            time_zone: user['timeZone'])
+
+        current_jwt_user.reload
+      else
+        return head :precondition_failed
+      end
     end
 
     configuration = ProjectConfiguration.new(jwt_token: current_jwt_auth, project_id: params[:project_id],
@@ -48,5 +56,9 @@ class ProjectConfigurationsController < ApplicationController
     configuration.save!(validate: false)
 
     configuration
+  end
+
+  def jira_gateway
+    JiraGateway.new(current_jwt_auth)
   end
 end
