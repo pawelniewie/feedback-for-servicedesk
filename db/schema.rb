@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706124334) do
+ActiveRecord::Schema.define(version: 20160801194358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,13 @@ ActiveRecord::Schema.define(version: 20160706124334) do
     t.datetime "updated_at",                  null: false
     t.index ["jwt_token_id", "project_id"], name: "index_project_configurations_on_jwt_token_id_and_project_id", unique: true, using: :btree
     t.index ["jwt_token_id"], name: "index_project_configurations_on_jwt_token_id", using: :btree
+  end
+
+  create_table "typeform_payloads", force: :cascade do |t|
+    t.string   "event_id",   null: false
+    t.json     "payload",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "jwt_user_infos", "jwt_users", on_delete: :cascade

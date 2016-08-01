@@ -14,4 +14,8 @@ Rails.application.routes.draw do
 
   resources :project_configurations, only: [:edit, :update], param: :project_id
 
+  namespace :typeform do
+    resources :results, only: [:create]
+  end
+
 end
