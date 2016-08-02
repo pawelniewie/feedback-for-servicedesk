@@ -19,13 +19,15 @@ html[xmlns="http://www.w3.org/1999/xhtml"]
             table.w320[style="margin: 0 auto;" cellpadding="0" cellspacing="0" width="600"]
               tr
                 td[align="center" valign="top"]
-                  table.force-full-width[style="margin:0 auto;" cellpadding="0" cellspacing="0"]
-                    tr
-                      td[style="font-size: 30px; text-align:center;"]
-                        br
-                        |  Awesome Co 
-                        br
-                        br
+                  - if @first_name.present?
+                    table.force-full-width[style="margin:0 auto;" cellpadding="0" cellspacing="0"]
+                      tr
+                        td[style="font-size: 30px; text-align:center;"]
+                          br
+                            ' Dear
+                            = @first_name
+                          br
+                          br
                   table.force-full-width[style="margin: 0 auto;" cellpadding="0" cellspacing="0" bgcolor="#4dbfbf"]
                     tr
                       td
@@ -41,7 +43,9 @@ html[xmlns="http://www.w3.org/1999/xhtml"]
                             tr
                               td[style="color:#187272;"]
                                 br
-                                |  By letting us know how happy you are with us you will help us improve our services! Please take a moment to click on one of the buttons below. 0 being not happy and 10 being very happy! 
+                                ' Please take one minute to leave us your candid feedback so we can continue to improve.
+                                ' Our team will read each and every response. Don't hold back, we want to know what
+                                ' you really think. Thank you!
                                 br
                                 br
                                 br
@@ -107,29 +111,15 @@ html[xmlns="http://www.w3.org/1999/xhtml"]
                                 br
                   table.force-full-width[style="margin: 0 auto" cellpadding="0" cellspacing="0" bgcolor="#414141"]
                     tr
-                      td[style="background-color:#414141;"]
+                      td[style="color:#bbbbbb; font-size:12px;"]
                         br
                         br
-                        img[src="https://www.filepicker.io/api/file/R4VBTe2UQeGdAlM7KDc4" alt="google+"]
-                        img[src="https://www.filepicker.io/api/file/cvmSPOdlRaWQZnKFnBGt" alt="facebook"]
-                        img[src="https://www.filepicker.io/api/file/Gvu32apSQDqLMb40pvYe" alt="twitter"]
+                        = link_to 'Unsubscribe', subscription_url(id: ''), method: :delete
                         br
                         br
                     tr
                       td[style="color:#bbbbbb; font-size:12px;"]
-                        a[href="#"]
-                          | View in browser
-                        |  | 
-                        a[href="#"]
-                          | Unsubscribe
-                        |  | 
-                        a[href="#"]
-                          | Contact
-                        br
-                        br
-                    tr
-                      td[style="color:#bbbbbb; font-size:12px;"]
-                        | © 2016
+                        ' © 2016
                         a href='https://marketplace.atlassian.com/plugins/customer-feedback-for-servicedesk-cloud/cloud/overview' Customer feedback for JIRA Service Desk
                         br
                         br

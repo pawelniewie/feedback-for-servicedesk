@@ -24,6 +24,7 @@ module BitbucketRailsAddOn
 
     config.action_dispatch.default_headers.merge!({'X-Frame-Options' => 'ALLOWALL'})
 
+    config.action_mailer.default_url_options = { host: Rails.application.secrets.http_host }
     config.action_mailer.delivery_method = :mailgun
     config.action_mailer.deliver_later_queue_name = 'customer-feedback-mailer'
     config.action_mailer.mailgun_settings = {
