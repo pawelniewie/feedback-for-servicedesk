@@ -10,11 +10,13 @@ Rails.application.routes.draw do
   get '/configure', to: 'configure#show'
   put '/configure', to: 'configure#save'
 
-  post '/callback', to: 'callback#handle'
-
   resources :project_configurations, only: [:edit, :update], param: :project_id
 
   namespace :typeform do
+    resources :results, only: [:create]
+  end
+
+  namespace :servicedesk do
     resources :results, only: [:create]
   end
 
