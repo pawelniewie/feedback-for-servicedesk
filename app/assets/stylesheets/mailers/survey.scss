@@ -1,0 +1,108 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans); /* Take care of image borders and formatting */
+img {
+  max-width: 600px;
+  outline: none;
+  text-decoration: none;
+  -ms-interpolation-mode: bicubic;
+}
+
+a {
+  text-decoration: none;
+  border: 0;
+  outline: none;
+  color: #bbbbbb;
+}
+
+a img {
+  border: none;
+}
+
+/* General styling */
+td, h1, h2, h3 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 400;
+}
+
+td {
+  text-align: center;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+  width: 100%;
+  height: 100%;
+  color: #37302d;
+  background: #ffffff;
+  font-size: 16px;
+}
+
+table {
+  border-collapse: collapse !important;
+}
+
+.headline {
+  color: #ffffff;
+  font-size: 36px;
+}
+
+.force-full-width {
+  width: 100% !important;
+}
+
+.force-width-80 {
+  width: 80% !important;
+}
+
+.pusher {
+  width: 25px;
+}
+
+.steps {
+  width: 43px;
+}
+
+@media screen { /*Thanks Outlook 2013! http://goo.gl/XLxpyl*/
+  td, h1, h2, h3 {
+    font-family: 'Droid Sans', 'Helvetica Neue', 'Arial', 'sans-serif' !important;
+  }
+}
+
+/* Mobile styles */
+@media only screen and (max-width: 480px) {
+  table[class="w320"] {
+    width: 320px !important;
+  }
+  td[class="mobile-block"] {
+    width: 100% !important;
+    display: block !important;
+  }
+  td[class="pusher"] {
+    width: 0 !important;
+  }
+  img[class="steps"] {
+    width: 28px !important;
+  }
+}
+
+.issue {
+  border-radius: 2px;
+  border-color: #414141;
+  border-width: 1px;
+  border-style: solid;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.take_survey {
+  @extend .headline;
+
+  background-color: #7f7f7f;
+  border-radius: 5px;
+  border-color: white;
+  border-width: 2px;
+  border-style: solid;
+  padding: 10px;
+}

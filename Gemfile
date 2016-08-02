@@ -48,7 +48,7 @@ gem 'atlassian-jwt-authentication',
 
 # Mail handling
 gem 'mailgun_rails'
-gem 'premailer-rails'
+gem 'roadie-rails'
 gem 'nokogiri'
 gem 'shoryuken'
 
