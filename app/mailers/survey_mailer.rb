@@ -11,14 +11,8 @@ class SurveyMailer < ApplicationMailer
   end
 
   def test_feedback(jwt_user, project_configuration)
-    give_feedback(project_configuration, {
-      fields: {
-        reporter: {
-          email: jwt_user.jwt_user_info.email,
-          displayName: jwt_user.display_name
-        }.with_indifferent_access
-      }.with_indifferent_access
-    }.with_indifferent_access)
+    issue = JSON.parse(Rails.root.join('test/mailers/previews/issue_payload.json').read).with_indifferent_access
+    give_feedback(project_configuration, issue)
   end
 
 end
