@@ -15,24 +15,6 @@ section#content role = 'main'
           = hidden_field_tag :jwt, create_session_token
 
           .field-group
-            = f.label :subject, 'Subject'
-            = f.text_field :subject, class: 'text'
-            .description
-              | What subject should the message have?
-
-          .field-group
-            = f.label :intro, 'Introduction message'
-            = f.text_area :introduction, class: 'textarea', rows: 6
-            .description
-              | Additional message you want to include
-
-          .field-group
-            = f.label :language, 'Language'
-            = f.select :language, PromoterGateway.supported_languages.map {|k, v| [v, k]}, {}, {class: 'select'}
-            .description
-              | What language to use for the mail?
-
-          .field-group
             = f.label :reply_to, 'Reply-To Email'
             = f.text_field :reply_to, class: 'text'
             .description

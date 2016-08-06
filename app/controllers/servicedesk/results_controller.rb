@@ -1,15 +1,19 @@
 module Servicedesk
   class ResultsController < ApplicationController
     def create
-      File.open(Rails.root.join('payload.json'), 'w') do |file|
-        file.write(params[:issue].to_json)
+      issue = params[:issue]
+
+      unless issue_is_done? (issue)
+        payload = IssuePayload.create!(payload: issue)
+
+        SendFeedbackRequestJob.set(wait: rand(10..14).minutes).perform_later(payload.id)
       end
 
-      project_configuration ||= ProjectConfiguration.find_by(project_id: params[:issue][:fields][:project][:id].to_i)
-
-      SurveyMailer.give_feedback(project_configuration, params[:issue]).deliver_later
-
       head :no_content
+    end
+
+    def issue_is_done?(issue)
+      issue.dig(:fields, :status, :statusCategory, :key) == 'done'
     end
   end
 end
