@@ -7,9 +7,16 @@ section#content role = 'main'
   .aui-page-panel
     .aui-page-panel-inner
       .aui-page-panel-content
-        - if flash[:notice]
-          .aui-message.aui-message-success
-            p = flash[:notice]
+        - flash.each do |name, msg|
+          - if name == :notice
+            .aui-message.aui-message-success
+              p = msg
+          - else if name == :alert
+            .aui-message.aui-message-error
+              p = msg
+          - else
+            .aui-message.aui-message-info
+              p = msg
 
         = form_for @project_configuration, url: {action: 'update'}, html: {class: 'aui'}, method: :patch do |f|
           = hidden_field_tag :jwt, create_session_token

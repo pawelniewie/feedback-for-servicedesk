@@ -21,7 +21,6 @@ class ProjectConfigurationsController < ApplicationController
       flash[:notice] = 'Configuration was saved!'
 
       redirect_to(edit_project_configuration_url(@project_configuration, jwt: params[:jwt]))
-
     else
       render action: 'edit'
     end
