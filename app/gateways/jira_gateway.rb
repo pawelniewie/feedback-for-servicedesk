@@ -12,6 +12,8 @@ class JiraGateway
     include HTTParty
     include AtlassianJwtAuthentication::HTTParty
 
+    # debug_output
+
     def initialize(current_jwt_auth)
       @current_jwt_auth = current_jwt_auth
     end
@@ -22,6 +24,19 @@ class JiraGateway
           key: user_key
         },
         current_jwt_auth: @current_jwt_auth
+      })
+    end
+
+    def internal_comment(issue_id_or_key, comment)
+      self.class.post_with_jwt("/rest/servicedeskapi/request/#{issue_id_or_key}/comment", {
+        current_jwt_auth: @current_jwt_auth,
+        headers: {
+          'Content-Type' => 'application/json'
+        },
+        body: {
+          body: comment,
+          public: false,
+        }.to_json
       })
     end
   end

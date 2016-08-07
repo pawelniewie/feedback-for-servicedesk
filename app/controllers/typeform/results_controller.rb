@@ -6,11 +6,11 @@ module Typeform
 
     def create
       payload = TypeformPayload.find_or_create_by!(event_id: params[:event_id]) do |tf|
-        tf.payload = params.to_json
+        tf.payload = params
       end
 
       if payload.new_record?
-        AddCommentToServiceDeskJob.perform_later(payload.id)
+        AddCommentToServiceDeskJob.perform_later(payload)
       end
 
       head :no_content

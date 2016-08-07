@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/pawelniewie/atlassian-jwt-authentication.git
-  revision: ca04e4e79fcc08c5e3d4750cae9c4ba738a4827e
+  revision: 7edc4b4d9e502c9b0dd6426640521df7b11da169
   branch: master
   specs:
     atlassian-jwt-authentication (0.1.1)
