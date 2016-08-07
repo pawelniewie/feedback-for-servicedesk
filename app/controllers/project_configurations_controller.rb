@@ -9,6 +9,8 @@ class ProjectConfigurationsController < ApplicationController
   before_action :load_project_configuration
 
   def edit
+    flash[:notice] = params[:notice] if params[:notice].present?
+
     @project_configuration ||= create_project_configuration
   end
 
@@ -18,7 +20,7 @@ class ProjectConfigurationsController < ApplicationController
 
       SurveyMailer.test_feedback(current_jwt_user, @project_configuration).deliver_later if params[:send_test].to_s == 'true'
 
-      redirect_to edit_project_configuration_url(@project_configuration, jwt: params[:jwt]), notice: 'Configuration was saved!'
+      redirect_to edit_project_configuration_url(@project_configuration, jwt: params[:jwt], notice: 'Configuration was saved!')
     else
       render action: 'edit'
     end

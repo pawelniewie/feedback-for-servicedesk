@@ -8,10 +8,10 @@ section#content role = 'main'
     .aui-page-panel-inner
       .aui-page-panel-content
         - flash.each do |name, msg|
-          - if name == :notice
+          - if name == 'notice'
             .aui-message.aui-message-success
               p = msg
-          - elsif name == :alert
+          - elsif name == 'alert'
             .aui-message.aui-message-error
               p = msg
           - else
