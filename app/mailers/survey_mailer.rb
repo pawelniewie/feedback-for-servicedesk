@@ -17,7 +17,7 @@ class SurveyMailer < ApplicationMailer
   end
 
   def survey_url(issue_key, issue_summary, recipient_email, client_id)
-    base_url = Rails.env.production? ? '' : 'https://servicedesk-feedback.typeform.com/to/qh00Hs'
+    base_url = Rails.application.secrets.survey_url
     base_url += "?issue_key=#{CGI::escape(issue_key)}"
     base_url += "&issue_summary=#{CGI::escape(issue_summary)}"
     base_url += "&recipient_email=#{CGI::escape(recipient_email)}"
