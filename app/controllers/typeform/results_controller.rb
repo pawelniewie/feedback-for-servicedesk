@@ -5,12 +5,15 @@ module Typeform
     respond_to :json
 
     def create
-      payload = TypeformPayload.find_or_create_by!(event_id: params[:event_id]) do |tf|
-        tf.payload = params
-      end
+      TypeformPayload.transaction do
+        payload = TypeformPayload.find_or_initialize_by(event_id: params[:event_id]) do |tf|
+          tf.payload = params
+        end
 
-      if payload.new_record?
-        AddCommentToServiceDeskJob.perform_later(payload)
+        if payload.new_record?
+          payload.save!
+          AddCommentToServiceDeskJob.perform_later(payload.id)
+        end
       end
 
       head :no_content

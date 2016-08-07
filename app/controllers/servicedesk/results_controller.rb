@@ -3,7 +3,7 @@ module Servicedesk
     def create
       issue = params[:issue]
 
-      unless issue_is_done? (issue)
+      if issue_is_done? (issue)
         payload = IssuePayload.create!(payload: issue)
 
         SendFeedbackRequestJob.set(wait: rand(10..14).minutes).perform_later(payload.id)
