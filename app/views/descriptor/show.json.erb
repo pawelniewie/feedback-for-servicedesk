@@ -1,43 +1,69 @@
 {
-    "authentication": {
-        "type": "jwt"
-    },
-    "baseUrl": "<%= base_url %>",
-    "contexts": [
-        "personal"
-    ],
-    "description": "Discover how your users perceive the support service you provide",
-    "key": "<%= plugin_key %>",
-    "name": "<%= plugin_name %>",
-    "scopes": [
-        "read",
-        "write"
-    ],
-    "lifecycle": {
-        "installed": "/installed",
-        "uninstalled": "/uninstalled"
-    },
-    "vendor": {
-        "name": "Pawel Niewiadomski",
-        "url": "https://pawelniewiadomski.com"
-    },
-    "modules": {
-      "configurePage": {
-        "url": "/configure",
-        "name": {
-          "value": "Configuration"
-        },
-        "key": "config-page"
+  "authentication": {
+    "type": "jwt"
+  },
+  "baseUrl": "<%= base_url %>",
+  "contexts": [
+    "personal"
+  ],
+  "description": "Discover how your users perceive the support service you provide",
+  "key": "<%= plugin_key %>",
+  "name": "<%= plugin_name %>",
+  "scopes": [
+    "read",
+    "write"
+  ],
+  "lifecycle": {
+    "installed": "/installed",
+    "uninstalled": "/uninstalled"
+  },
+  "vendor": {
+    "name": "Pawel Niewiadomski",
+    "url": "https://pawelniewiadomski.com"
+  },
+  "modules": {
+    "configurePage": {
+      "url": "/configure",
+      "name": {
+        "value": "Configuration"
       },
-      "generalPages": [
-        {
-          "key": "custom-feedback-project-config",
-          "location": "atl.jira.proj.config/projectgroup4",
-          "name": {
-            "value": "Customer feedback"
-          },
-          "url": "/project_configurations/{project.id}/edit"
-        }
-      ]
-    }
+      "key": "config-page"
+    },
+    "generalPages": [
+      {
+        "key": "custom-feedback-project-config",
+        "location": "atl.jira.proj.config/projectgroup4",
+        "name": {
+          "value": "Customer feedback"
+        },
+        "url": "/project_configurations/{project.id}/edit"
+      }
+    ],
+    "jiraEntityProperties": [
+      {
+        "name": {
+          "value": "Customer Feedback"
+        },
+        "entityType": "issue",
+        "key": "customer-feedback-entity-property",
+        "keyConfigurations": [
+          {
+            "propertyKey": "customer-feedback",
+            "extractions": [
+              {
+                "objectName": "rating",
+                "type": "number",
+                "alias": "customerFeedbackRating"
+              },
+              {
+                "objectName": "comment",
+                "type": "text",
+                "alias": "customerFeedbackComment"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 }

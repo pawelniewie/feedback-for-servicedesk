@@ -39,5 +39,15 @@ class JiraGateway
         }.to_json
       })
     end
+
+    def entity(issue_id_or_key, entity_key, entity_body)
+      self.class.put_with_jwt("/rest/api/2/issue/#{issue_id_or_key}/properties/#{entity_key}", {
+        current_jwt_auth: @current_jwt_auth,
+        headers: {
+          'Content-Type' => 'application/json'
+        },
+        body: entity_body.to_json
+      })
+    end
   end
 end
