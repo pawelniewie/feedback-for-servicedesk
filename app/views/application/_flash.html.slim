@@ -1,0 +1,10 @@
+- flash.each do |name, msg|
+  - if name == 'notice'
+    .aui-message.aui-message-success
+      p = msg
+  - elsif name == 'alert'
+    .aui-message.aui-message-error
+      p = msg
+  - else
+    .aui-message.aui-message-info
+      p = msg

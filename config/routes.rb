@@ -4,11 +4,8 @@ Rails.application.routes.draw do
   get '/descriptor', to: 'descriptor#show', defaults: { format: :json }
   post '/installed', to: 'lifecycle#installed'
   post '/uninstalled', to: 'lifecycle#uninstalled'
-  get '/stars', to: 'stars#show'
-  put '/stars', to: 'stars#save'
 
-  get '/configure', to: 'configure#show'
-  put '/configure', to: 'configure#save'
+  get '/configuration', to: 'configuration#show'
 
   resources :project_configurations, only: [:edit, :update], param: :project_id
 
