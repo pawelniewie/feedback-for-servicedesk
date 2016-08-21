@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :project_configurations, only: [:edit, :update], param: :project_id
 
+  resources :nps_configurations, only: [:show], param: :project_id
+
   resources :subscriptions, only: [:destroy]
 
   namespace :typeform do

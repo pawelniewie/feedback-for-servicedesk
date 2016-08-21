@@ -64,6 +64,20 @@
           }
         ]
       }
+    ],
+    "automationActions": [
+      {
+        "key": "send-nps-feedback",
+        "name": {
+          "value": "Ask for NPS"
+        },
+        "webhook": {
+          "url": "/servicedesk/results"
+        },
+        "configForm": {
+          "url": "/nps_configurations/${project.id}"
+        }
+      }
     ]
   }
 }

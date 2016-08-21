@@ -1,0 +1,28 @@
+- content_for :head
+  = stylesheet_link_tag :nps_configurations
+  = javascript_include_tag :nps_configurations
+
+  css:
+    body { background-color: #fff; }
+
+= render 'flash'
+
+= form_tag '', class: 'aui top-label' do
+  = hidden_field_tag :jwt, create_session_token
+
+  .field-group
+    = label_tag :reply_to, 'Reply-To Email'
+    = text_field_tag :reply_to, nil, class: 'text'
+    .description
+      | Reply To address where customers can reach you
+
+  .field-group
+    = label_tag :reply_name, 'Reply-To Name'
+    = text_field_tag :reply_name, nil, class: 'text'
+    .description
+      | Name that will be displayed in Reply To field
+
+  .field-group
+    .checkbox
+      = check_box_tag :send_test, :true, false, class: 'checkbox'
+      = label_tag :send_test, 'Send test e-mail message to me'
