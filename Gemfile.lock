@@ -105,6 +105,7 @@ GEM
     jmespath (1.3.1)
     json (2.0.2)
     jwt (1.5.4)
+    le (2.7.2)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -230,6 +231,7 @@ DEPENDENCIES
   byebug
   haml
   jbuilder (~> 2.0)
+  le
   listen (~> 3.0.5)
   mailgun_rails
   nokogiri

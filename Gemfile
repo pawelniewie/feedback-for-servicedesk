@@ -58,3 +58,6 @@ gem 'slim'
 gem 'attr_encrypted'
 
 gem 'addressable'
+
+# LogEntry
+gem 'le'
