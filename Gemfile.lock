@@ -235,29 +235,29 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  addressable
+  addressable!
   atlassian-jwt-authentication!
-  attr_encrypted
-  haml
-  jbuilder (~> 2.0)
-  le
-  listen (~> 3.0.5)
-  mailgun_rails
-  newrelic_rpm
-  nokogiri
-  pg (~> 0.18)
-  pry-byebug
-  puma (~> 3.0)
-  rails (>= 5.0.0.rc1, < 5.1)
-  react-rails
-  responders
-  roadie-rails
-  sass-rails
-  shoryuken
-  slim
-  spring
-  spring-watcher-listen (~> 2.0.0)
-  tzinfo-data
+  attr_encrypted!
+  haml!
+  jbuilder (~> 2.0)!
+  le!
+  listen (~> 3.0.5)!
+  mailgun_rails!
+  newrelic_rpm!
+  nokogiri!
+  pg (~> 0.18)!
+  pry-byebug!
+  puma (~> 3.0)!
+  rails (>= 5.0.0.rc1, < 5.1)!
+  react-rails!
+  responders!
+  roadie-rails!
+  sass-rails!
+  shoryuken!
+  slim!
+  spring!
+  spring-watcher-listen (~> 2.0.0)!
+  tzinfo-data!
 
 RUBY VERSION
    ruby 2.3.1p112
