@@ -62,6 +62,4 @@ gem 'addressable'
 # LogEntry
 gem 'le'
 
-group :production do
-  gem 'newrelic_rpm'
-end
+gem 'newrelic_rpm'
