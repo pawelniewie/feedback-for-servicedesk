@@ -11,6 +11,8 @@ section#content role = 'main'
 
         = form_for @project_configuration, url: {action: 'update'}, html: {class: 'aui'}, method: :patch do |f|
           = hidden_field_tag :jwt, create_session_token
+          = hidden_field_tag :xdm_e, params[:xdm_e]
+          = hidden_field_tag :cp, params[:cp]
 
           .field-group
             = f.label :reply_to, 'Reply-To Email'

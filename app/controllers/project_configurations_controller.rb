@@ -20,7 +20,12 @@ class ProjectConfigurationsController < ApplicationController
 
       SurveyMailer.test_feedback(current_jwt_user, @project_configuration).deliver_later if params[:send_test].to_s == 'true'
 
-      redirect_to edit_project_configuration_url(@project_configuration, jwt: params[:jwt], notice: 'Configuration was saved!')
+      redirect_to edit_project_configuration_url(
+        @project_configuration,
+        jwt: params[:jwt],
+        xdm_e: params[:xdm_e],
+        cp: params[:cp],
+        notice: 'Configuration was saved!')
     else
       render action: 'edit'
     end

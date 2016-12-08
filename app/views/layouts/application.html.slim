@@ -9,7 +9,7 @@ html
 
     meta name = 'token' content = create_session_token
 
-    = render 'connect-loader'
+    script id="connect-loader" data-options="sizeToParent:true;" src="#{params[:xdm_e] + params[:cp]}/atlassian-connect/all.js"
 
     = render 'analytics'
 

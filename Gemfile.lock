@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/pawelniewie/rails-commons.git
-  revision: f1327f1bf1683e164d253df8d688b0dcaffadb7f
+  revision: 4543a8ec9bef5c8a4ff16a11f6fb10d55c84b438
   branch: master
   specs:
     rails-commons (0.1.0)

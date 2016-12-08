@@ -29,13 +29,27 @@
       },
       "key": "config-page"
     },
-    "generalPages": [
+    "jiraProjectAdminTabPanels": [
       {
         "key": "custom-feedback-project-config",
-        "location": "atl.jira.proj.config/projectgroup4",
+        "location": "projectgroup4",
         "name": {
           "value": "Customer feedback"
         },
+        "conditions": [
+          {
+            "or": [
+              {"condition": "user_is_project_admin"},
+              {"condition": "user_is_admin"}
+            ]
+          },
+          {
+            "condition": "can_use_application",
+            "params": {
+              "applicationKey": "jira-servicedesk"
+            }
+          }
+        ],
         "url": "/project_configurations/{project.id}/edit"
       }
     ],

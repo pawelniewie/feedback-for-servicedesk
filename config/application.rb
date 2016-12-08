@@ -33,6 +33,7 @@ module CustomerFeedback
     }
 
     config.active_job.queue_adapter = :shoryuken
+    config.active_job.queue_name = Proc.new { 'customer-feedback' }
     config.active_job.queue_name_prefix = Rails.env
 
     config.assets.precompile += ['mailers/survey.css']
